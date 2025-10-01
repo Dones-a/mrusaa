@@ -824,6 +824,7 @@ body {
         transition: 0.3s;
         padding: 20px 0;
         border-top: 1px solid #333;
+        z-index: 999;
     }
     
     .nav-menu.active {
@@ -832,6 +833,56 @@ body {
     
     .nav-menu li {
         margin: 10px 0;
+    }
+    
+    /* Estilos específicos para dropdown en móvil */
+    .dropdown {
+        position: relative;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        transform: none;
+        transition: all 0.3s ease;
+        background-color: #0f0f0f;
+        border: none;
+        border-radius: 0;
+        margin-top: 10px;
+        padding: 0;
+    }
+    
+    .dropdown-menu.active {
+        opacity: 1;
+        visibility: visible;
+        max-height: 500px;
+        padding: 10px 0;
+    }
+    
+    .dropdown-menu li {
+        margin: 5px 0;
+    }
+    
+    .dropdown-menu a {
+        padding: 10px 20px;
+        background-color: transparent;
+    }
+    
+    .dropdown-menu a:hover,
+    .dropdown-menu a.active {
+        background-color: #ff6b6b;
+    }
+    
+    /* Icono de flecha en móvil */
+    .dropdown > .nav-link i {
+        transition: transform 0.3s ease;
+    }
+    
+    .dropdown.active > .nav-link i {
+        transform: rotate(180deg);
     }
     
     .hero-content {

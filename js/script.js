@@ -277,23 +277,73 @@ window.addEventListener('load', function() {
 
 // Detectar dispositivo y ajustar comportamiento
 document.addEventListener('DOMContentLoaded', function() {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isMobile = window.innerWidth <= 768;
     
     if (isMobile) {
         document.body.classList.add('mobile-device');
         
         // Ajustar comportamiento del menú desplegable en móviles
         const dropdownItems = document.querySelectorAll('.dropdown');
+        
         dropdownItems.forEach(item => {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                const dropdownMenu = this.querySelector('.dropdown-menu');
-                if (dropdownMenu) {
-                    dropdownMenu.classList.toggle('active');
-                }
+            const dropdownLink = item.querySelector('.nav-link');
+            const dropdownMenu = item.querySelector('.dropdown-menu');
+            
+            if (dropdownLink && dropdownMenu) {
+                // Agregar icono de flecha clickeable
+                dropdownLink.addEventListener('click', function(e) {
+                    // Si el clic fue en la flecha o cerca de ella
+                    const clickX = e.offsetX;
+                    const linkWidth = this.offsetWidth;
+                    
+                    // Si el clic es en los últimos 40px (donde está la flecha), mostrar menú
+                    if (clickX > linkWidth - 40) {
+                        e.preventDefault();
+                        item.classList.toggle('active');
+                        dropdownMenu.classList.toggle('active');
+                        
+                        // Cerrar otros dropdowns abiertos
+                        dropdownItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                                otherItem.querySelector('.dropdown-menu')?.classList.remove('active');
+                            }
+                        });
+                    }
+                    // Si no, dejar que el enlace funcione normalmente
+                });
+            }
+        });
+        
+        // Cerrar dropdown al hacer clic en un item del menú
+        document.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('active');
+                });
             });
         });
     }
+    
+    // Redetectar en cambio de tamaño de ventana
+    window.addEventListener('resize', function() {
+        const nowMobile = window.innerWidth <= 768;
+        if (nowMobile) {
+            document.body.classList.add('mobile-device');
+        } else {
+            document.body.classList.remove('mobile-device');
+            // Limpiar estados de dropdown en desktop
+            document.querySelectorAll('.dropdown').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('active');
+            });
+        }
+    });
 });
 
 // Funcionalidad de búsqueda (si se implementa en el futuro)
