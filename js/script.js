@@ -275,11 +275,15 @@ window.addEventListener('load', function() {
     }
 });
 
-// Detectar dispositivo y ajustar comportamiento
+// Detectar dispositivo y ajustar comportamiento del menú móvil
 document.addEventListener('DOMContentLoaded', function() {
-    const isMobile = window.innerWidth <= 768;
+    function isMobileView() {
+        return window.innerWidth <= 768;
+    }
     
-    if (isMobile) {
+    function setupMobileMenu() {
+        if (!isMobileView()) return;
+        
         document.body.classList.add('mobile-device');
         
         // Ajustar comportamiento del menú desplegable en móviles
@@ -290,59 +294,80 @@ document.addEventListener('DOMContentLoaded', function() {
             const dropdownMenu = item.querySelector('.dropdown-menu');
             
             if (dropdownLink && dropdownMenu) {
-                // Agregar icono de flecha clickeable
-                dropdownLink.addEventListener('click', function(e) {
-                    // Si el clic fue en la flecha o cerca de ella
-                    const clickX = e.offsetX;
-                    const linkWidth = this.offsetWidth;
+                // Remover listeners previos clonando el elemento
+                const newLink = dropdownLink.cloneNode(true);
+                dropdownLink.parentNode.replaceChild(newLink, dropdownLink);
+                
+                // En móvil, todo el enlace abre el desplegable
+                newLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     
-                    // Si el clic es en los últimos 40px (donde está la flecha), mostrar menú
-                    if (clickX > linkWidth - 40) {
-                        e.preventDefault();
-                        item.classList.toggle('active');
-                        dropdownMenu.classList.toggle('active');
-                        
-                        // Cerrar otros dropdowns abiertos
-                        dropdownItems.forEach(otherItem => {
-                            if (otherItem !== item) {
-                                otherItem.classList.remove('active');
-                                otherItem.querySelector('.dropdown-menu')?.classList.remove('active');
-                            }
-                        });
+                    const isOpen = item.classList.contains('open');
+                    
+                    // Cerrar todos los dropdowns
+                    document.querySelectorAll('.dropdown').forEach(d => {
+                        d.classList.remove('open');
+                        const menu = d.querySelector('.dropdown-menu');
+                        if (menu) menu.classList.remove('active');
+                    });
+                    
+                    // Si no estaba abierto, abrirlo
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        dropdownMenu.classList.add('active');
                     }
-                    // Si no, dejar que el enlace funcione normalmente
                 });
             }
         });
         
-        // Cerrar dropdown al hacer clic en un item del menú
+        // Cerrar dropdown y menú hamburguesa al hacer clic en un item
         document.querySelectorAll('.dropdown-menu a').forEach(link => {
             link.addEventListener('click', function() {
+                // Cerrar dropdowns
                 document.querySelectorAll('.dropdown').forEach(item => {
+                    item.classList.remove('open');
                     item.classList.remove('active');
                 });
                 document.querySelectorAll('.dropdown-menu').forEach(menu => {
                     menu.classList.remove('active');
                 });
+                
+                // Cerrar menú hamburguesa
+                const hamburger = document.querySelector('.hamburger');
+                const navMenu = document.querySelector('.nav-menu');
+                if (hamburger && navMenu) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
             });
         });
     }
     
-    // Redetectar en cambio de tamaño de ventana
+    // Configurar menú móvil al cargar
+    setupMobileMenu();
+    
+    // Reconfigurar al cambiar tamaño de ventana
+    let resizeTimer;
     window.addEventListener('resize', function() {
-        const nowMobile = window.innerWidth <= 768;
-        if (nowMobile) {
-            document.body.classList.add('mobile-device');
-        } else {
-            document.body.classList.remove('mobile-device');
-            // Limpiar estados de dropdown en desktop
-            document.querySelectorAll('.dropdown').forEach(item => {
-                item.classList.remove('active');
-            });
-            document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                menu.classList.remove('active');
-            });
-        }
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            if (isMobileView()) {
+                document.body.classList.add('mobile-device');
+                setupMobileMenu();
+            } else {
+                document.body.classList.remove('mobile-device');
+                // Limpiar estados de dropdown en desktop
+                document.querySelectorAll('.dropdown').forEach(item => {
+                    item.classList.remove('open');
+                    item.classList.remove('active');
+                });
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('active');
+                    menu.style.display = '';
+                });
+            }
+        }, 250);
     });
 });
 
