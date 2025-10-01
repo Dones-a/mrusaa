@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Muñeca Rusa</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="img/logo.png" alt="Muñeca Rusa Logo" class="logo">
+                <span class="logo-text">Muñeca Rusa</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Temporadas <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="temporada1.html">Temporada 1</a></li>
+                        <li><a href="temporada2.html">Temporada 2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="galeria.html" class="nav-link active">Galería</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contacto.html" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <section class="gallery-header">
+            <div class="container">
+                <h1>Galería de Imágenes</h1>
+                <p>Momentos icónicos de la serie Muñeca Rusa</p>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">Todas</button>
+                    <button class="filter-btn" data-filter="escenas">Escenas</button>
+                    <button class="filter-btn" data-filter="posters">Posters</button>
+                </div>
+
+                <div class="gallery-grid">
+                    <!-- Imagen 1 -->
+                    <div class="gallery-item" data-category="escenas" onclick="openModal('img/muñecarusa-1.jpg', 'Nadia Vulvokov')">
+                        <img src="img/muñecarusa-1.jpg" alt="Nadia Vulvokov" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Nadia Vulvokov</h3>
+                            <p>La protagonista de nuestra historia</p>
+                        </div>
+                    </div>
+
+                    <!-- Imagen 2 -->
+                    <div class="gallery-item" data-category="posters" onclick="openModal('img/muñecarusa-2.jpg', 'Poster Promocional')">
+                        <img src="img/muñecarusa-2.jpg" alt="Poster promocional" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Poster Promocional</h3>
+                            <p>Material promocional de la serie</p>
+                        </div>
+                    </div>
+
+                    <!-- Imagen 3 -->
+                    <div class="gallery-item" data-category="escenas" onclick="openModal('img/muñecarusa-3.jpg', 'El Bucle')">
+                        <img src="img/muñecarusa-3.jpg" alt="Escena del bucle" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>El Bucle</h3>
+                            <p>Momentos clave del bucle temporal</p>
+                        </div>
+                    </div>
+
+
+                    <!-- Imagen 5 -->
+                    <div class="gallery-item" data-category="escenas" onclick="openModal('img/muñecarusa-5.jpg', 'La Fiesta')">
+                        <img src="img/muñecarusa-5.jpg" alt="Nadia en la fiesta" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>La Fiesta</h3>
+                            <p>Nadia en su cumpleaños número 36</p>
+                        </div>
+                    </div>
+
+                    <!-- Imagen 6 -->
+                    <div class="gallery-item" data-category="escenas" onclick="openModal('img/muñecarusa-6.jpg', 'Momento Emocional')">
+                        <img src="img/muñecarusa-6.jpg" alt="Escena emocional" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Momento Emocional</h3>
+                            <p>Una de las escenas más impactantes</p>
+                        </div>
+                    </div>
+
+                    <!-- Imagen 7 -->
+                    <div class="gallery-item" data-category="posters" onclick="openModal('img/muñecarusa-7.jpg', 'Poster Temporada 2')">
+                        <img src="img/muñecarusa-7.jpg" alt="Poster Temporada 2" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Poster Temporada 2</h3>
+                            <p>El cartel de la segunda temporada</p>
+                        </div>
+                    </div>
+
+                    <!-- Imagen 8 -->
+                    <div class="gallery-item" data-category="posters" onclick="openModal('img/muñecarusa-8.jpg', 'Poster de Temporada')">
+                        <img src="img/muñecarusa-8.jpg" alt="Poster de temporada" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Poster de Temporada</h3>
+                            <p>Material gráfico oficial de la serie</p>
+                        </div>
+                    </div>
+
+                    <!-- Imagen 9 -->
+                    <div class="gallery-item" data-category="escenas" onclick="openModal('img/muñecarusa-9.jpg', 'El Baño')">
+                        <img src="img/muñecarusa-9.jpg" alt="Escena del baño" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>El Baño</h3>
+                            <p>El lugar donde todo comenzó</p>
+                        </div>
+                    </div>
+
+                    <!-- Imagen 10 -->
+                    <div class="gallery-item" data-category="escenas" onclick="openModal('img/muñecarusa-10.jpg', 'Reflexión')">
+                        <img src="img/muñecarusa-10.jpg" alt="Nadia reflexionando" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Reflexión</h3>
+                            <p>Nadia en un momento de introspección</p>
+                        </div>
+                    </div>
+
+                    <!-- Imagen 11 -->
+                    <div class="gallery-item" data-category="escenas" onclick="openModal('img/muñecarusa-11.jpg', 'El Final')">
+                        <img src="img/muñecarusa-11.jpg" alt="Escena final" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>El Final</h3>
+                            <p>El momento culminante de la serie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para imágenes -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Muñeca Rusa</h3>
+                    <p>Una experiencia televisiva única que desafía la realidad.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/netflix" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/netflix" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/netflix" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/netflix" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="https://youtu.be/oHg5SJYRHA0" target="_blank" class="social-link onlyfans">
+                            <svg class="onlyfans-logo" viewBox="0 0 100 100" fill="currentColor">
+                                <circle cx="35" cy="50" r="18" fill="currentColor"/>
+                                <circle cx="35" cy="50" r="10" fill="white"/>
+                                <rect x="55" y="35" width="20" height="6" fill="currentColor"/>
+                                <rect x="55" y="35" width="6" height="30" fill="currentColor"/>
+                                <rect x="55" y="52" width="15" height="6" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="temporada1.html">Temporadas</a></li>
+                        <li><a href="galeria.html">Galería</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Muñeca Rusa. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
