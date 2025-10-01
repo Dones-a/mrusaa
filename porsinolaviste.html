@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Por si no la viste - Muñeca Rusa</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .video-section {
+            padding: 80px 0;
+        }
+
+        .video-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .video-intro h2 {
+            color: #ff6b6b;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .video-intro p {
+            color: #b0b0b0;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Ratio 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            background-color: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 20px;
+        }
+
+        .video-description {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+
+        .video-description h3 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .video-description p {
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .video-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .video-cta .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .video-cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        .video-cta .btn i {
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .video-intro h2 {
+                font-size: 2rem;
+            }
+
+            .video-intro p {
+                font-size: 1rem;
+            }
+
+            .video-description {
+                padding: 20px;
+            }
+
+            .video-description h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="img/logo.png" alt="Muñeca Rusa Logo" class="logo">
+                <span class="logo-text">Muñeca Rusa</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="temporadas.html" class="nav-link active">Temporadas <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="temporada1.html">Temporada 1</a></li>
+                        <li><a href="temporada2.html">Temporada 2</a></li>
+                        <li><a href="porsinolaviste.html" class="active">Por si no la viste</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="galeria.html" class="nav-link">Galería</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contacto.html" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <section class="season-header">
+            <div class="container">
+                <h1>Por si no la viste</h1>
+                <p>Descubre todo sobre esta increíble serie</p>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <div class="container">
+                <div class="video-intro">
+                    <h2>¿Aún no has visto Muñeca Rusa?</h2>
+                    <p>Te presentamos un vistazo a esta fascinante serie que te mantendrá al borde de tu asiento. Prepárate para una experiencia única llena de giros inesperados y momentos inolvidables.</p>
+                </div>
+
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/Mn8KwJh6Rig" 
+                        title="Muñeca Rusa - Por si no la viste" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="video-description">
+                    <h3>Sobre la Serie</h3>
+                    <p>
+                        <strong>Muñeca Rusa</strong> es una serie original de Netflix que combina elementos de ciencia ficción, comedia oscura y drama existencial. La protagonista, Nadia Vulvokov, interpretada magistralmente por Natasha Lyonne, se encuentra atrapada en un bucle temporal el día de su cumpleaños número 36.
+                    </p>
+                    <p>
+                        Lo que comienza como una fiesta normal se convierte en una pesadilla repetitiva donde Nadia debe descubrir la razón de su situación y cómo escapar de ella. A medida que avanza la historia, la serie explora temas profundos sobre la identidad, las relaciones humanas, las decisiones del pasado y cómo estas afectan nuestro presente.
+                    </p>
+                    <p>
+                        Con su estilo visual único, diálogos ingeniosos y giros argumentales impredecibles, <strong>Muñeca Rusa</strong> se ha convertido en una de las series más aclamadas por la crítica y el público. No te la pierdas.
+                    </p>
+                </div>
+
+                <div class="video-cta">
+                    <a href="temporadas.html" class="btn">
+                        <i class="fas fa-play-circle"></i>
+                        Comienza a Ver Ahora
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Muñeca Rusa</h3>
+                    <p>Una experiencia televisiva única que desafía la realidad.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/netflix" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/netflix" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/netflix" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/netflix" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="https://youtu.be/oHg5SJYRHA0" target="_blank" class="social-link onlyfans">
+                            <svg class="onlyfans-logo" viewBox="0 0 100 100" fill="currentColor">
+                                <circle cx="35" cy="50" r="18" fill="currentColor"/>
+                                <circle cx="35" cy="50" r="10" fill="white"/>
+                                <rect x="55" y="35" width="20" height="6" fill="currentColor"/>
+                                <rect x="55" y="35" width="6" height="30" fill="currentColor"/>
+                                <rect x="55" y="52" width="15" height="6" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="temporadas.html">Temporadas</a></li>
+                        <li><a href="galeria.html">Galería</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Muñeca Rusa. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
